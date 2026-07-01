@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Report</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🎓 Student Performance Analysis System
+    </div>
+
+</nav>
+
+<section class="hero">
+
+<div class="upload-card">
+
+<h2>📄 Student Performance Report</h2>
+
+<table class="student-table">
+
+<tr>
+    <th>Student ID</th>
+    <td>{{ student[0] }}</td>
+</tr>
+
+<tr>
+    <th>Name</th>
+    <td>{{ student[1] }}</td>
+</tr>
+
+<tr>
+    <th>Attendance</th>
+    <td>{{ student[2] }}%</td>
+</tr>
+
+<tr>
+    <th>Marks</th>
+    <td>{{ student[3] }}</td>
+</tr>
+
+<tr>
+    <th>Performance Score</th>
+    <td>{{ student[4] }}</td>
+</tr>
+
+<tr>
+    <th>Risk Status</th>
+
+    <td>
+
+        {% if student[5] == "Safe" %}
+
+        <span class="safe-badge">Safe</span>
+
+        {% else %}
+
+        <span class="risk-badge">{{ student[5] }}</span>
+
+        {% endif %}
+
+    </td>
+
+</tr>
+
+<tr>
+    <th>Reason</th>
+    <td>{{ student[6] }}</td>
+</tr>
+
+<tr>
+    <th>Suggestion</th>
+    <td>{{ student[7] }}</td>
+</tr>
+
+</table>
+
+<br>
+
+<a href="/">
+
+<button>
+
+⬅ Back Home
+
+</button>
+
+</a>
+
+</div>
+
+</section>
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Performance Analysis System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🎓 Student Performance Analysis System
+        </div>
+
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <!-- Heading -->
+
+        <div class="hero-content">
+
+            <h1>Analyze Student Performance</h1>
+
+            <p>
+                Upload your student Excel file and instantly identify
+                Safe Students and At-Risk Students with personalized
+                suggestions.
+            </p>
+
+        </div>
+
+        <!-- Upload Card -->
+
+        <div class="upload-card">
+
+            <h2>Upload Excel File</h2>
+
+            <form action="/analyze" method="POST" enctype="multipart/form-data">
+
+                <input
+                    type="file"
+                    name="file"
+                    accept=".xlsx"
+                    required>
+
+                <button type="submit">
+                    Analyze Now
+                </button>
+
+            </form>
+<hr style="margin:20px 0;">
+
+<div class="student-login">
+
+    <h3>🎓 Student Portal</h3>
+
+    <p>View your personal performance report</p>
+
+    <a href="/student">
+        <button type="button" class="student-btn">
+            Student Login
+        </button>
+    </a>
+
+</div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

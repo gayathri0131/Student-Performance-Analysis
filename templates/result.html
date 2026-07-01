@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Analysis Report</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='result.css') }}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>🎓 Student Performance Analysis System</h1>
+    </header>
+
+    <!-- Report Banner -->
+    <div class="report-header">
+
+        <div class="report-text">
+            <h2>Performance Analysis Report</h2>
+            <p>
+                Detailed insight into student performance, attendance,
+                academic progress and risk prediction.
+            </p>
+        </div>
+
+        <div class="report-image">
+            <img src="{{ url_for('static', filename='images/books.png') }}"
+                 alt="Education">
+        </div>
+
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="cards">
+
+        <div class="card blue">
+            <h3>Total Students</h3>
+            <h1>{{ total }}</h1>
+        </div>
+
+        <div class="card green">
+            <h3>Safe Students</h3>
+            <h1>{{ safe }}</h1>
+        </div>
+
+        <div class="card red">
+            <h3>At-Risk Students</h3>
+            <h1>{{ risk }}</h1>
+        </div>
+
+        <div class="card orange">
+            <h3>Average Score</h3>
+            <h1>{{ average }}</h1>
+        </div>
+
+    </div>
+
+    <!-- Safe Students -->
+    <div class="section">
+
+        <div class="section-header">
+            <h2>✅ Safe Students</h2>
+
+            <a href="/download_safe" class="download-btn">
+                📥 Download Excel
+            </a>
+        </div>
+
+        {{ safe_table|safe }}
+
+    </div>
+
+    <!-- At-Risk Students -->
+    <div class="section">
+
+        <div class="section-header">
+            <h2>⚠️ At-Risk Students</h2>
+
+            <a href="/download_risk" class="download-btn risk-btn">
+                📥 Download Excel
+            </a>
+        </div>
+
+        {{ risk_table|safe }}
+
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="bottom-section">
+
+        <!-- Pie Chart -->
+    <div class="chart-card">
+
+    <h2>📊 Performance Overview</h2>
+
+    <div class="chart-content">
+
+        <div class="chart-box">
+            <canvas id="studentChart"></canvas>
+        </div>
+
+        <div class="chart-legend">
+
+            <div class="legend-item">
+                <span class="legend-color safe"></span>
+                <span>Safe Students<br><b>{{ safe }}</b> ({{ safe_percent }}%)</span>
+            </div>
+
+            <div class="legend-item">
+                <span class="legend-color risk"></span>
+                <span>At-Risk Students<br><b>{{ risk }}</b> ({{ risk_percent }}%)</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- Suggestions -->
+        <div class="suggestion-card">
+
+            <h2>💡 Tips for Improvement</h2>
+
+            <ul class="suggestions">
+                <li>Maintain attendance above <b>75%</b>.</li>
+                <li>Practice weak subjects daily and revise important topics.</li>
+                <li>Meet faculty mentors regularly for academic guidance.</li>
+                <li>Participate in remedial classes if marks are low.</li>
+                <li>Create a weekly study schedule and follow it consistently.</li>
+            </ul>
+
+            <img src="{{ url_for('static', filename='images/kids.png') }}"
+                 class="kids-image"
+                 alt="Kids">
+
+        </div>
+
+    </div>
+
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('studentChart');
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Safe Students', 'At-Risk Students'],
+                datasets: [{
+                    data: [{{ safe }}, {{ risk }}],
+                    backgroundColor: [
+                        '#8FAF7B',
+                        '#DC2626'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Safe vs At-Risk Students'
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

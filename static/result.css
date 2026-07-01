@@ -1,0 +1,332 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:#0d2b73;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+.header h1{
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* ================= REPORT SECTION ================= */
+
+.report-header{
+    width:90%;
+    margin:20px auto;
+    background:white;
+    border-radius:12px;
+    padding:15px 25px;     
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    overflow:hidden;
+    min-height:160px;      
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.report-text{
+    width:65%;
+}
+
+.report-text h2{
+    color:#173d91;
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.report-text p{
+    color:#555;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.report-image{
+    width:30%;
+    text-align:right;
+}
+.report-image img{
+    width:180px;  
+    height:auto;
+}
+
+/* ================= SUMMARY CARDS ================= */
+
+.cards{
+    width:90%;
+    margin:20px auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.card{
+    color:white;
+    padding:18px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.card h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.card h1{
+    font-size:30px;
+}
+
+.blue{
+    background:#2563eb;
+}
+
+.green{
+    background:#16a34a;
+}
+
+.red{
+    background:#dc2626;
+}
+
+.orange{
+    background:#ea580c;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+    width:90%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.section-header{
+    margin-bottom:12px;
+}
+
+.section-header h2{
+    color:#173d91;
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+/* ================= BUTTONS ================= */
+
+.download-btn{
+    display:inline-block;
+    background:#16a34a;
+    color:white;
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:6px;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.download-btn:hover{
+    background:#15803d;
+}
+
+.risk-btn{
+    background:#dc2626;
+}
+
+.risk-btn:hover{
+    background:#b91c1c;
+}
+
+/* ================= TABLE ================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:5px;
+}
+
+table th{
+    background:#2563eb;
+    color:white;
+    padding:8px;
+    font-size:12px;
+    border:1px solid #ddd;
+}
+
+table td{
+    padding:8px;
+    font-size:12px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+table tr:nth-child(even){
+    background:#f5f5f5;
+}
+
+/* ================= SUGGESTIONS ================= */
+
+.suggestions{
+    padding-left:20px;
+    margin-top:10px;
+}
+
+.suggestions li{
+    margin-bottom:8px;
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .report-header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .report-text{
+        width:100%;
+    }
+
+    .report-image{
+        width:100%;
+        text-align:center;
+        margin-top:15px;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .header h1{
+        font-size:18px;
+    }
+
+    .report-text h2{
+        font-size:20px;
+    }
+
+    .section-header h2{
+        font-size:18px;
+    }
+}
+.chart-card{
+    width:35%;
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    margin:20px auto;
+}
+
+#studentChart{
+    width:250px !important;
+    height:250px !important;
+}
+
+/* ================= BOTTOM SECTION ================= */
+
+.bottom-section{
+    width:90%;
+    margin:20px auto;
+    display:flex;
+    gap:20px;
+    align-items:stretch;
+}
+
+/* Left Card */
+
+.chart-card{
+    width:45%;
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+    text-align:center;
+    height:250px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.chart-card h2{
+    color:#173d91;
+    margin-bottom:15px;
+}
+
+#studentChart{
+    width:120px !important;
+    height:120px !important;
+    margin:auto;
+}
+
+/* Right Card */
+
+.suggestion-card{
+    width:52%;
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+    position:relative;
+    height:250px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.suggestion-card h2{
+    color:#173d91;
+    margin-bottom:15px;
+}
+
+.suggestions{
+    padding-left:20px;
+}
+
+.suggestions li{
+    margin-bottom:10px;
+    font-size:15px;
+    line-height:1.5;
+}
+
+/* Kids Image */
+
+.kids-image{
+    position:absolute;
+    right:25px;
+    top:25px;      
+    width:200px;
+    height:200px;
+}

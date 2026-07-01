@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Login</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🎓 Student Performance Analysis System
+    </div>
+
+</nav>
+
+<section class="hero">
+
+    <div class="upload-card">
+
+        <h2>Student Login</h2>
+
+    <form action="/student_report" method="POST">
+
+    <input
+        type="text"
+        name="stu_id"
+        placeholder="Enter Student ID"
+        required>
+
+    <button type="submit">
+        View Report
+    </button>
+
+</form>
+    </div>
+
+</section>
+
+</body>
+
+</html>
