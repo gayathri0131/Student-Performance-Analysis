@@ -18,6 +18,7 @@ body{
     background:url("images/campus.jpg") no-repeat center center;
     background-size:cover;
     background-attachment:fixed;
+    overflow:hidden;
 }
 
 /* ===========================
@@ -47,12 +48,12 @@ body{
 
 .hero{
     width:100%;
-    min-height:calc(100vh - 70px);
+    height:calc(100vh - 70px);
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:flex-start;
-    padding-top:30px;      /* Reduced from 45px */
+    justify-content:center;
+    padding:20px;
 }
 
 /* ===========================
@@ -62,11 +63,11 @@ body{
 .hero-content{
     width:100%;
     text-align:center;
-    margin-bottom:25px;    /* Reduced from 45px */
+    margin-bottom:20px;
 }
 
 .hero-content h1{
-    font-size:52px;
+    font-size:46px;
     color:#173d91;
     font-weight:800;
     margin-bottom:12px;
@@ -74,7 +75,7 @@ body{
 }
 
 .hero-content p{
-    width:75%;
+    width:65%;
     margin:auto;
     font-size:18px;
     color:#222;
@@ -87,10 +88,10 @@ body{
 =========================== */
 
 .upload-card{
-    width:500px;          /* Reduced from 560px */
+    width:500px;
     background:#fff;
-    border-radius:18px;
-    padding:35px;         /* Reduced from 60px */
+    border-radius:20px;
+    padding:40px;
     box-shadow:0 12px 30px rgba(0,0,0,.20);
 }
 
