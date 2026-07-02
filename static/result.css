@@ -236,23 +236,9 @@ table tr:nth-child(even){
         font-size:18px;
     }
 }
-.chart-card{
-    width:35%;
-    background:#fff;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 3px 10px rgba(0,0,0,.08);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    margin:20px auto;
-}
 
-#studentChart{
-    width:250px !important;
-    height:250px !important;
-}
+
+
 
 /* ================= BOTTOM SECTION ================= */
 
@@ -267,28 +253,67 @@ table tr:nth-child(even){
 /* Left Card */
 
 .chart-card{
-    width:45%;
+    width:48%;
     background:#fff;
     border-radius:15px;
-    padding:20px;
+    padding:10px;
     box-shadow:0 3px 10px rgba(0,0,0,.08);
     text-align:center;
     height:250px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    margin-top:3px;
 }
 
 .chart-card h2{
     color:#173d91;
-    margin-bottom:15px;
+    margin-bottom:5px;
 }
 
 #studentChart{
-    width:120px !important;
-    height:120px !important;
-    margin:auto;
+    width:180px !important;
+    height:180px !important;
+    margin:15px;
+}
+.chart-content{
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+    gap:32px;
+}
+
+.chart-stats{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.stat-box{
+    width:170px;
+    padding:0px;
+    border-radius:10px;
+    color:#fff;
+    text-align:center;
+}
+
+.safe-box{
+    background:#16a34a;
+}
+
+.risk-box{
+    background:#dc2626;
+}
+
+.stat-box h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.stat-box p{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.stat-box span{
+    font-size:15px;
 }
 
 /* Right Card */

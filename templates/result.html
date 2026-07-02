@@ -100,20 +100,20 @@
 
     <div class="chart-content">
 
-        <div class="chart-box">
-            <canvas id="studentChart"></canvas>
-        </div>
+        <canvas id="studentChart"></canvas>
 
-        <div class="chart-legend">
+        <div class="chart-stats">
 
-            <div class="legend-item">
-                <span class="legend-color safe"></span>
-                <span>Safe Students<br><b>{{ safe }}</b> ({{ safe_percent }}%)</span>
+            <div class="stat-box safe-box">
+                <h3>✅ Safe Students</h3>
+                <p>{{ safe }}</p>
+                <span>{{ ((safe/total)*100)|round(1) }}%</span>
             </div>
 
-            <div class="legend-item">
-                <span class="legend-color risk"></span>
-                <span>At-Risk Students<br><b>{{ risk }}</b> ({{ risk_percent }}%)</span>
+            <div class="stat-box risk-box">
+                <h3>⚠️ At-Risk Students</h3>
+                <p>{{ risk }}</p>
+                <span>{{ ((risk/total)*100)|round(1) }}%</span>
             </div>
 
         </div>
