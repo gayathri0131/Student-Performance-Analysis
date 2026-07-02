@@ -88,18 +88,17 @@ body{
 =========================== */
 
 .upload-card{
-    width:500px;
+    width:440px;
     background:#fff;
-    border-radius:20px;
-    padding:25px 35px;
-    box-shadow:0 12px 30px rgba(0,0,0,.20);
+    border-radius:18px;
+    padding:18px 25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
-
 .upload-card h2{
     text-align:center;
     color:#173d91;
-    margin-bottom:18px;
-    font-size:26px;
+    font-size:22px;
+    margin-bottom:12px;
 }
 
 /* ===========================
@@ -108,9 +107,9 @@ body{
 
 input[type=file]{
     width:100%;
-    padding:12px;
+    padding:9px;
     border:2px dashed #2563eb;
-    border-radius:10px;
+    border-radius:8px;
     background:#f8fbff;
     cursor:pointer;
 }
@@ -121,13 +120,13 @@ input[type=file]{
 
 button{
     width:100%;
-    margin-top:15px;
-    padding:14px;
+    margin-top:10px;
+    padding:11px;
     border:none;
-    border-radius:10px;
+    border-radius:8px;
     background:#2563eb;
     color:#fff;
-    font-size:20px;
+    font-size:17px;
     font-weight:bold;
     cursor:pointer;
     transition:.3s;
@@ -248,20 +247,20 @@ button:hover{
     width:120px;
 }
 .student-login{
-    margin-top:20px;
+    margin-top:15px;
     text-align:center;
 }
 
 .student-login h3{
-    color:#0b3d91;
-    margin-bottom:8px;
+    margin-bottom:5px;
+    font-size:18px;
 }
 
 .student-login p{
-    color:#555;
-    font-size:15px;
-    margin-bottom:15px;
+    font-size:14px;
+    margin-bottom:10px;
 }
+
 
 .student-btn{
     width:100%;
@@ -270,7 +269,7 @@ button:hover{
     color:white;
     border:none;
     border-radius:8px;
-    font-size:18px;
+    font-size:16px;
     cursor:pointer;
     transition:.3s;
 }
