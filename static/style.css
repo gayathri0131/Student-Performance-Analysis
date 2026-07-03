@@ -4,7 +4,7 @@
 
 *{
     margin:0;
-    padding:0;
+    padding:10;
     box-sizing:border-box;
     font-family:"Segoe UI",sans-serif;
 }
@@ -64,31 +64,32 @@ body{
     width:100%;
     text-align:center;
     margin-bottom:20px;
+    margin-top:-30px;
 }
 
 .hero-content h1{
-    font-size:46px;
+    font-size:60px;
     color:#173d91;
-    font-weight:800;
-    margin-bottom:12px;
-    text-shadow:2px 2px 8px rgba(255,255,255,.9);
+    font-weight:bold;
+    margin-bottom:15px;
+    text-shadow:2px 2px 8px rgba(255,255,255,0.7);
 }
 
 .hero-content p{
-    width:65%;
-    margin:auto;
-    font-size:18px;
-    color:#222;
-    line-height:1.7;
-    font-weight:500;
+    font-size:20px;
+    color:#ffffff;
+    font-weight:600;
+    line-height:1.6;
+    max-width:900px;
+    margin:0 auto 30px;
+    text-shadow:2px 2px 6px rgba(0,0,0,0.8);
 }
-
 /* ===========================
    CARD
 =========================== */
 
 .upload-card{
-    width:440px;
+    width:550px;
     background:#fff;
     border-radius:18px;
     padding:18px 25px;

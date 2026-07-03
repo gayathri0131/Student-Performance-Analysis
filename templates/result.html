@@ -76,17 +76,27 @@
     </div>
 
     <!-- At-Risk Students -->
-    <div class="section">
+  <!-- At-Risk Students -->
+<div class="section">
 
-        <div class="section-header">
-            <h2>⚠️ At-Risk Students</h2>
+    <div class="section-header">
+        <h2>⚠️ At-Risk Students</h2>
+
+        <div class="button-group">
 
             <a href="/download_risk" class="download-btn risk-btn">
-                📥 Download Excel
+                📥 Download Excel 
             </a>
+
+           <button class="download-btn email-btn" onclick="sendEmails()">
+                 📧 Send Emails
+          </button>
+
         </div>
 
-        {{ risk_table|safe }}
+    </div>
+
+    {{ risk_table|safe }}
 
     </div>
 
@@ -177,6 +187,19 @@
             }
         });
     </script>
+<script>
+function sendEmails(){
 
+    fetch("/send_emails")
+    .then(response => response.text())
+    .then(data => {
+        alert("✅ Emails sent successfully!");
+    })
+    .catch(error => {
+        alert("❌ Failed to send emails!");
+    });
+
+}
+</script>
 </body>
 </html>

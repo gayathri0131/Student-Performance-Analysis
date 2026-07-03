@@ -1,7 +1,10 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_file, redirect
 import pandas as pd
 import os
 import sqlite3
+import smtplib
+from email.message import EmailMessage
+
 
 app = Flask(__name__)
 
@@ -36,7 +39,34 @@ def create_database():
 
 
 create_database()
+def send_email(receiver_email, student_name, reason):
 
+    sender_email = "gayathriponugoti31@gmail.com"
+    app_password = "bedh jroj fqnx iory"
+
+    msg = EmailMessage()
+
+    msg["Subject"] = "Student Performance Alert"
+    msg["From"] = sender_email
+    msg["To"] = receiver_email
+
+    msg.set_content(f"""
+Dear {student_name},
+
+This is an alert from the Student Performance Analysis System.
+
+Reason:
+{reason}
+
+Please improve your attendance and academic performance.
+
+Regards,
+Student Performance Analysis System
+""")
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+        smtp.login(sender_email, app_password)
+        smtp.send_message(msg)
 
 @app.route("/")
 def home():
@@ -196,6 +226,22 @@ def student_report():
         "student_report.html",
         student=student
     )
+@app.route("/send_emails")
+def send_emails():
+
+    risk_file = os.path.join(REPORT_FOLDER, "risk_students.xlsx")
+
+    data = pd.read_excel(risk_file)
+
+    for _, row in data.iterrows():
+
+        send_email(
+            row["EMAIL"],
+            row["NAME"],
+            row["REASON"]
+        )
+
+    return "success"
 
 @app.route("/download_risk")
 def download_risk():
