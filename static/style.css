@@ -94,6 +94,7 @@ body{
     border-radius:18px;
     padding:18px 25px;
     box-shadow:0 10px 25px rgba(0,0,0,.18);
+    max-width:500px;
 }
 .upload-card h2{
     text-align:center;

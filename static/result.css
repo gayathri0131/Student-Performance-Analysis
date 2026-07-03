@@ -363,6 +363,7 @@ table tr:nth-child(even){
 
 .email-btn{
     background:#2563eb;
+    cursor:pointer;
 }
 
 .email-btn:hover{

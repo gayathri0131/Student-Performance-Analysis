@@ -188,15 +188,22 @@
         });
     </script>
 <script>
-function sendEmails(){
+function sendEmails() {
 
     fetch("/send_emails")
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data => {
-        alert("✅ Emails sent successfully!");
+
+        if(data.status === "success"){
+            alert("✅ " + data.message);
+        }
+        else{
+            alert("❌ " + data.message);
+        }
+
     })
     .catch(error => {
-        alert("❌ Failed to send emails!");
+        alert("❌ Failed to send emails.");
     });
 
 }

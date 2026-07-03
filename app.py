@@ -233,15 +233,36 @@ def send_emails():
 
     data = pd.read_excel(risk_file)
 
-    for _, row in data.iterrows():
+    # EMAIL column undho ledho check
+    if "EMAIL" not in data.columns:
+        return {
+            "status": "error",
+            "message": "EMAIL column not found in uploaded Excel."
+        }
 
-        send_email(
-            row["EMAIL"],
-            row["NAME"],
-            row["REASON"]
-        )
+    try:
+        for _, row in data.iterrows():
 
-    return "success"
+            # Empty email unte skip
+            if pd.isna(row["EMAIL"]) or str(row["EMAIL"]).strip() == "":
+                continue
+
+            send_email(
+                row["EMAIL"],
+                row["NAME"],
+                row["REASON"]
+            )
+
+        return {
+            "status": "success",
+            "message": "Emails sent successfully!"
+        }
+
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e)
+        }
 
 @app.route("/download_risk")
 def download_risk():
