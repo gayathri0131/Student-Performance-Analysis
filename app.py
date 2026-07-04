@@ -44,8 +44,7 @@ def send_emails_to_students(data):
     sender_email = "gayathriponugoti31@gmail.com"
     app_password = "bedh jroj fqnx iory"
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as smtp:
         smtp.login(sender_email, app_password)
 
         for _, row in data.iterrows():
