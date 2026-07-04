@@ -39,24 +39,33 @@ def create_database():
 
 
 create_database()
-def send_email(receiver_email, student_name, reason):
+def send_emails_to_students(data):
 
     sender_email = "gayathriponugoti31@gmail.com"
     app_password = "bedh jroj fqnx iory"
 
-    msg = EmailMessage()
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
 
-    msg["Subject"] = "Student Performance Alert"
-    msg["From"] = sender_email
-    msg["To"] = receiver_email
+        smtp.login(sender_email, app_password)
 
-    msg.set_content(f"""
-Dear {student_name},
+        for _, row in data.iterrows():
+
+            if pd.isna(row["EMAIL"]) or str(row["EMAIL"]).strip() == "":
+                continue
+
+            msg = EmailMessage()
+
+            msg["Subject"] = "Student Performance Alert"
+            msg["From"] = sender_email
+            msg["To"] = row["EMAIL"]
+
+            msg.set_content(f"""
+Dear {row['NAME']},
 
 This is an alert from the Student Performance Analysis System.
 
 Reason:
-{reason}
+{row['REASON']}
 
 Please improve your attendance and academic performance.
 
@@ -64,9 +73,7 @@ Regards,
 Student Performance Analysis System
 """)
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-        smtp.login(sender_email, app_password)
-        smtp.send_message(msg)
+            smtp.send_message(msg)
 
 @app.route("/")
 def home():
@@ -227,13 +234,14 @@ def student_report():
         student=student
     )
 @app.route("/send_emails")
+@app.route("/send_emails")
 def send_emails():
 
     risk_file = os.path.join(REPORT_FOLDER, "risk_students.xlsx")
 
     data = pd.read_excel(risk_file)
 
-    # EMAIL column undho ledho check
+    # Check whether EMAIL column exists
     if "EMAIL" not in data.columns:
         return {
             "status": "error",
@@ -241,17 +249,9 @@ def send_emails():
         }
 
     try:
-        for _, row in data.iterrows():
 
-            # Empty email unte skip
-            if pd.isna(row["EMAIL"]) or str(row["EMAIL"]).strip() == "":
-                continue
-
-            send_email(
-                row["EMAIL"],
-                row["NAME"],
-                row["REASON"]
-            )
+        # Send all emails using one Gmail login
+        send_emails_to_students(data)
 
         return {
             "status": "success",
@@ -259,6 +259,7 @@ def send_emails():
         }
 
     except Exception as e:
+
         return {
             "status": "error",
             "message": str(e)
